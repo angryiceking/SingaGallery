@@ -2,7 +2,7 @@
 
 class EntryController extends MY_Controller
 {
-    
+
     function __construct()
     {
         parent::__construct();
@@ -12,21 +12,32 @@ class EntryController extends MY_Controller
 
     public function index()
     {
-        $this->load_template('index.php', null, null);
+        $data = array(
+            'gallery' => $this->EntryModel->get_gallery()
+        );
+        $this->load_template('index.php', $data, null);
     }
 
     public function login()
     {
-        $user = $this->input->post('log_user');
-        $pass = $this->input->post('log_pass');
+        $user = $this->input->post('username');
+        $pass = $this->input->post('password');
         $a = $this->EntryModel->login($user, $pass);
-        $data = [
-            'user' => $a['user'],
-            'name' => $a['name'],
-            'type' => $a['type']
-        ];
-        $this->session->set_userdata($data);
-        // var_dump($a);
-        // redirect('login');
+
+        if ($a != null) {
+            $data = [
+                'user' => $a['username'],
+                'name' => $a['nickname'],
+                'type' => $a['type'],
+                'img' => $a['img'],
+                'email' => $a['email'],
+                'contact' => $a['contact'],
+                'is_signed' => true
+            ];
+
+            $this->session->set_userdata($data);
+
+            redirect('index');
+        }
     }
 }

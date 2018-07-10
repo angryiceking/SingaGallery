@@ -51,4 +51,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'EntryController';
 $route['login'] = 'EntryController/login';
+$route['gallery'] = 'InsideController/gallery';
+$route['blogs'] = 'InsideController/blogs';
+$route['events'] = 'InsideController/events';
+$route['contact'] = 'InsideController/contact';
+$route['about-us'] = 'InsideController/aboutus';
 $route['404_override'] = '';
