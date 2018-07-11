@@ -1,98 +1,60 @@
 <div class="content-body">
 	<div class="container">
 		<div class="row">
-			<main class="col-md-12">
-				<article class="post post-1">
-					<header class="entry-header">
-						<h1 class="entry-title">
-							<a href="single.html">Adaptive Vs. Responsive Layouts And Optimal Text Readability</a>
-						</h1>
-						<div class="entry-meta">
-							<span class="post-category"><a href="#">Web Design</a></span>
-							
-							<span class="post-date"><a href="#"><time class="entry-date" datetime="2012-11-09T23:15:57+00:00">February 2, 2013</time></a></span>
-							
-							<span class="post-author"><a href="#">Albert Einstein</a></span>
-							
-							<span class="comments-link"><a href="">4 Comments</a></span>
-						</div>
-					</header>
-					<div class="entry-content clearfix">
-						<p>Responsive web design offers us a way forward, finally allowing us to design for the ebb and flow of things. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly.</p>
-						<div class="read-more cl-effect-14">
-							<a href="#" class="more-link">Continue reading <span class="meta-nav">→</span></a>
-						</div>
-					</div>
-				</article>
+			<main class="col-md-12 text-center center-block">
+				<div class="gallery-slick-gallery">
+					<?php foreach ($gallery as $key): ?>
+						<div>
+							<div class="col-md-8">
+								<article class="post post-2">
+									<header class="entry-header">
+										<h1 class="entry-title">
+											<img src="build/img/<?php echo $key->img?>" class="img img-center center-block img-responsive">
+										</h1>
+										<div class="entry-meta">
+											<span class="post-category"><a href="#"><?php echo $key->title?></a></span>
 
-				<article class="post post-2">
-					<header class="entry-header">
-						<h1 class="entry-title">
-							<a href="single.html">Adaptive Vs. Responsive Layouts And Optimal Text Readability</a>
-						</h1>
-						<div class="entry-meta">
-							<span class="post-category"><a href="#">Web Design</a></span>
-							
-							<span class="post-date"><a href="#"><time class="entry-date" datetime="2012-11-09T23:15:57+00:00">February 2, 2013</time></a></span>
-							
-							<span class="post-author"><a href="#">Albert Einstein</a></span>
-							
-							<span class="comments-link"><a href="#">4 Comments</a></span>
-						</div>
-					</header>
-					<div class="entry-content clearfix">
-						<p>Responsive web design offers us a way forward, finally allowing us to design for the ebb and flow of things. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly.</p>
-						<div class="read-more cl-effect-14">
-							<a href="#" class="more-link">Continue reading <span class="meta-nav">→</span></a>
-						</div>
-					</div>
-				</article>
+											<span class="post-author"><a href="#"><?php echo $key->artist?></a></span>
 
-				<article class="post post-3">
-					<header class="entry-header">
-						<h1 class="entry-title">
-							<a href="single.html">Adaptive Vs. Responsive Layouts And Optimal Text Readability</a>
-						</h1>
-						<div class="entry-meta">
-							<span class="post-category"><a href="#" rel="category tag">Web Design</a></span>
-							
-							<span class="post-date"><a href="#"><time class="entry-date" datetime="2012-11-09T23:15:57+00:00">February 2, 2013</time></a></span>
-							
-							<span class="post-author"><a href="#">Albert Einstein</a></span>
-							
-							<span class="comments-link"><a href="#">4 Comments</a></span>
+											<span class="comments-link"><a href="#">#4 on popularity this month</a></span>
+										</div>
+									</header>
+								</article>
+							</div>
+							<div class="col-md-4">
+								<br/>
+								<br/>
+								<br/>
+								<span class="post-category"><a href="#"><strong><?php echo $key->title?></strong></a></span>
+								<span class="comments-link"><a href="#"><strong><?php echo $key->artist?></strong></a></span>
+								<div class="entry-content clearfix">
+									<br/>
+									<p class="text-left">
+										<?php echo $key->description?>
+									</p>
+									<hr>
+									<p class="text-left">
+										<strong>Medium: </strong><br/>
+										<?php echo $key->medium?>
+									</p>
+									<hr>
+									<p class="text-left">
+										<strong>Size: </strong><br/>
+										<?php echo $key->size?>
+									</p>
+									<hr>
+									<p class="text-left">
+										<strong>Price: </strong><br/>
+										<?php echo $key->price?>
+									</p>
+									<div class="read-more cl-effect-14">
+										<a href="#" class="more-link"> Buy now <span class="meta-nav">→</span></a>
+									</div>
+								</div>
+							</div>
 						</div>
-					</header>
-					<div class="entry-content clearfix">
-						<p>Responsive web design offers us a way forward, finally allowing us to design for the ebb and flow of things. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly.</p>
-						<div class="read-more cl-effect-14">
-							<a href="#" class="more-link">Continue reading <span class="meta-nav">→</span></a>
-						</div>
-					</div>
-				</article>
-
-				<article class="post post-4">
-					<header class="entry-header">
-						<h1 class="entry-title">
-							<a href="single.html">Adaptive Vs. Responsive Layouts And Optimal Text Readability</a>
-						</h1>
-						<div class="entry-meta">
-							<span class="post-category"><a href="#" rel="category tag">Web Design</a></span>
-							
-							<span class="post-date"><a href="#"><time class="entry-date" datetime="2012-11-09T23:15:57+00:00">February 2, 2013</time></a></span>
-							
-							<span class="post-author"><a href="#">Albert Einstein</a></span>
-							
-							<span class="comments-link"><a href="#">4 Comments</a></span>
-						</div>
-					</header>
-					<div class="entry-content clearfix">
-						<p>Responsive web design offers us a way forward, finally allowing us to design for the ebb and flow of things. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly.</p>
-						<div class="read-more cl-effect-14">
-							<a href="#" class="more-link">Continue reading <span class="meta-nav">→</span></a>
-						</div>
-					</div>
-				</article>
+					<?php endforeach ?>
+				</div>
 			</main>
 		</div>
 	</div>

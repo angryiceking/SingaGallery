@@ -7,11 +7,15 @@ class InsideController extends MY_Controller
     {
         parent::__construct();
         $this->load->helper('url');
+        $this->load->model('EntryModel');
     }
 
     public function gallery()
     {
-        $this->load_template('full-width.php', null, null, null);
+        $data = array(
+            'gallery' => $this->EntryModel->get_gallery()
+        );
+        $this->load_template('full-width.php', $data, null, null);
     }
 
     public function blogs()

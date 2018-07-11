@@ -15,4 +15,12 @@ $(document).ready(function(e){
         speed: 500,
         fade: true,
     })
+
+    $('.gallery-slick-gallery').slick({
+        autoplay: true,
+        infinite: true,
+        dots: true,
+        speed: 500,
+        fade: true,
+    })
 });
