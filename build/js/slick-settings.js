@@ -1,6 +1,7 @@
 $(document).ready(function(e){
     $('.slick-gallery').slick({
         autoplay: true,
+        dots: true,
         infinite: true,
         speed: 500,
         fade: true,
@@ -10,6 +11,7 @@ $(document).ready(function(e){
     $('.index-slick-gallery').slick({
         autoplay: true,
         infinite: true,
+        dots: true,
         speed: 500,
         fade: true,
     })
