@@ -27,24 +27,25 @@ class EntryController extends MY_Controller
     public function login()
     {
 
-        var_dump($this->input->post()); exit();
+        // var_dump($this->input->post()); exit();
         $user = $this->input->post('username');
         $pass = $this->input->post('password');
         $a = $this->EntryModel->login($user, $pass);
 
+        // var_dump($a); exit();
         if ($a) {
             $data = [
-                'user' => $a['username'],
-                'name' => $a['nickname'],
-                'type' => $a['type'],
-                'email' => $a['email'],
+                'user' => $a->username,
+                'name' => $a->nickname,
+                'type' => $a->type,
+                'email' => $a->email,
                 'is_signed' => true
             ];
 
             $this->session->set_userdata($data);
 
             // redirect('');
-            return $a['nickname'];
+            echo $a->nickname;
         }
     }
 

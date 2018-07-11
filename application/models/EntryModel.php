@@ -11,10 +11,10 @@ class EntryModel extends CI_Model
 
     public function login($user, $pass)
     {
-        var_dump($user, $pass);
+        // var_dump($user, $pass);
         $query = $this->db->get_where('users', array('username' => $user, 'password' => $pass));
         // return $query;
-        // return $query->row();
+        return $query->row();
     }
 
     public function register($data)

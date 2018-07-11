@@ -13,13 +13,15 @@ $(document).ready(function(e){
 
     $('#login').submit(function(e){
         e.preventDefault();
-        console.log($(this).serialize());
+        var username = $('#username').val();
+        var password = $('#password').val();
         $.ajax({
             url: 'login',
             type: 'POST',
-            data: $(this).serialize(),
+            data: {username: username, password: password},
             dataType: 'text',
             success:function(msg){
+                // alert(msg);
                 $('#session_anon').fadeOut(100);
                 $('#session_tab').fadeIn(100);
                 document.getElementById('session_tab_text').innerHTML = msg;

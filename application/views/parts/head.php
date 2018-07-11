@@ -57,7 +57,7 @@
                 <?php else: ?>
                   <li class="cl-effect-11"><small><?php echo $this->session->name?></small></li>
                 <?php endif ?>
-                <li style="display:none" id="session_tab" class="cl-effect-11"><small id="session_tab_text"></small></li>
+                  <li style="display:none" id="session_tab" class="cl-effect-11"><small id="session_tab_text"></small></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </nav>
