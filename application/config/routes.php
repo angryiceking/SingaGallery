@@ -57,3 +57,8 @@ $route['events'] = 'InsideController/events';
 $route['contact'] = 'InsideController/contact';
 $route['about-us'] = 'InsideController/aboutus';
 $route['404_override'] = '';
+
+// APIS
+$route['register'] = 'EntryController/register';
+$route['login'] = 'EntryController/login';
+$route['reset'] = 'EntryController/reset';

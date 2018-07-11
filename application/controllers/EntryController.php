@@ -10,6 +10,12 @@ class EntryController extends MY_Controller
         $this->load->model('EntryModel');
     }
 
+    public function reset()
+    {
+        $this->session->sess_destroy();
+        redirect('');
+    }
+
     public function index()
     {
         $data = array(
@@ -20,24 +26,52 @@ class EntryController extends MY_Controller
 
     public function login()
     {
+
+        var_dump($this->input->post()); exit();
         $user = $this->input->post('username');
         $pass = $this->input->post('password');
         $a = $this->EntryModel->login($user, $pass);
 
-        if ($a != null) {
+        if ($a) {
             $data = [
                 'user' => $a['username'],
                 'name' => $a['nickname'],
                 'type' => $a['type'],
-                'img' => $a['img'],
                 'email' => $a['email'],
-                'contact' => $a['contact'],
                 'is_signed' => true
             ];
 
             $this->session->set_userdata($data);
 
-            redirect('index');
+            // redirect('');
+            return $a['nickname'];
         }
+    }
+
+    public function register()
+    {
+        $data = array(
+            'username' => $this->input->post('reg_username'),
+            'password' => $this->input->post('reg_password'),
+            'nickname' => $this->input->post('nickname'),
+            'email' => $this->input->post('reg_email'),
+            'type' => 'user',
+        );
+
+        $reg = $this->EntryModel->register($data);
+
+        if ($reg) {
+            $data = [
+                'user' => $this->input->post('reg_username'),
+                'name' => $this->input->post('nickname'),
+                'email' => $this->input->post('reg_email'),
+                'type' => 'user',
+                'is_signed' => true
+            ];
+        }
+
+        $this->session->set_userdata($data);
+
+        redirect('');
     }
 }

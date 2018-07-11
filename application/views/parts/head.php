@@ -53,10 +53,11 @@
                 <li class="cl-effect-11"><a href="contacts" data-hover="Contact">Contact</a></li>
                 <li class="cl-effect-11"><a href="about-us" data-hover="About">About</a></li>
                 <?php if ((!$this->session->has_userdata('is_signed') && $this->session->is_signed != TRUE)): ?>
-                  <li class="cl-effect-11"><a href="#" class="btn btn-sm btn-inverse" data-toggle="modal" data-target="#login"><small class="text-danger">Anon</small></a></li>
+                  <li class="cl-effect-11" id="session_anon"><a href="#" class="btn btn-sm btn-inverse" data-toggle="modal" data-target="#login"><small class="text-danger">Anon</small></a></li>
                 <?php else: ?>
                   <li class="cl-effect-11"><small><?php echo $this->session->name?></small></li>
                 <?php endif ?>
+                <li style="display:none" id="session_tab" class="cl-effect-11"><small id="session_tab_text"></small></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </nav>
