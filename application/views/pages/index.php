@@ -1,6 +1,3 @@
-<script type="text/javascript" src="build/js/slick.min.js"></script>
-<script type="text/javascript" src="build/js/slick-settings.js"></script>
-
 <div class="content-body">
   <div class="container">
     <div class="row">

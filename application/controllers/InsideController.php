@@ -30,7 +30,10 @@ class InsideController extends MY_Controller
 
     public function contact()
     {
-        $this->load_template('contact.php', null, null, null);
+        $data = array(
+            'gallery' => $this->EntryModel->get_gallery()
+        );
+        $this->load_template('contact.php', $data, null, null);
     }
 
     public function aboutus()

@@ -1,15 +1,18 @@
+
 <div class="content-body">
 	<div class="container">
 		<div class="row">
 			<main class="col-md-12 text-center center-block">
-				<div class="gallery-slick-gallery">
+				<div class="nr-gallery-slick-gallery">
 					<?php foreach ($gallery as $key): ?>
-						<div>
+						<div class="caption">
 							<div class="col-md-8">
 								<article class="post post-2">
-									<header class="entry-header">
+									<header class="entry-header lg-item" data-src="build/img/<?php echo $key->img?>">
 										<h1 class="entry-title">
-											<img src="build/img/<?php echo $key->img?>" class="img img-center center-block img-responsive">
+											<a href="build/img/<?php echo $key->img?>">
+												<img src="build/img/<?php echo $key->img?>" class="img img-center center-block img-responsive">
+											</a>
 										</h1>
 										<div class="entry-meta">
 											<span class="post-category"><a href="#"><?php echo $key->title?></a></span>
@@ -47,8 +50,12 @@
 										<strong>Price: </strong><br/>
 										<?php echo $key->price?>
 									</p>
+									<br/>
+									<p class="text-left">
+										<ion-icon name="heart"></ion-icon> 21 Likes 
+									</p>
 									<div class="read-more cl-effect-14">
-										<a href="#" class="more-link"> Buy now <span class="meta-nav">→</span></a>
+										<a href="javascript:void(0)" class="more-link"><span class="meta-nav"><ion-icon name="cart"></ion-icon></span> Add to cart </a>
 									</div>
 								</div>
 							</div>

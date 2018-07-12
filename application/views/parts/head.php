@@ -13,16 +13,26 @@
   <link rel="stylesheet" href="build/css/carousel.css">
   <link rel="stylesheet" href="build/css/slick.css">
   <link rel="stylesheet" href="build/css/slick-theme.css">
+  <link rel="stylesheet" href="build/css/snackbar.css">
+  <link rel="stylesheet" href="build/css/snackbar.min.css">
+  <link rel="stylesheet" href="build/light-gallery/css/lightgallery.min.css">
 
   <script src="build/js/jquery-2.1.3.min.js"></script>
   <script src="build/js/bootstrap.min.js"></script>
   <script src="build/js/pace.min.js"></script>
+  <script src="build/js/snackbar.js"></script>
+  <script src="build/js/snackbar.min.js"></script>
   <script src="build/js/modernizr.custom.js"></script>
 
   <link rel="stylesheet" href="build/css/pace.css">
   <link rel="stylesheet" href="build/css/custom.css">
   <script src="build/js/carousel.js"></script>
+  <script src="build/light-gallery/js/lightgallery.min.js"></script>
+  <script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>
   <script type="text/javascript" src="build/js/index-settings.js"></script>
+  <script type="text/javascript" src="build/js/slick.min.js"></script>
+  <script type="text/javascript" src="build/js/slick-settings.js"></script>
+
   <style type="text/css">
   .no-padding {
     padding-left: 0;
@@ -51,7 +61,7 @@
                 <li class="cl-effect-11"><a href="index.php" data-hover="Home">Home</a></li>
                 <li class="cl-effect-11"><a href="gallery" data-hover="Gallery">Gallery</a></li>
                 <li class="cl-effect-11"><a href="events" data-hover="Events">Events</a></li>
-                <li class="cl-effect-11"><a href="contacts" data-hover="Contact">Contact</a></li>
+                <li class="cl-effect-11"><a href="contact" data-hover="Contact">Contact</a></li>
                 <li class="cl-effect-11"><a href="about-us" data-hover="About">About</a></li>
                 <?php if ((!$this->session->has_userdata('is_signed') && $this->session->is_signed != TRUE)): ?>
                   <li class="cl-effect-11" id="session_anon"><a href="#" class="btn btn-sm btn-inverse" data-toggle="modal" data-target="#login"><small class="text-danger">Anon</small></a></li>

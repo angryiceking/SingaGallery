@@ -20,6 +20,26 @@
 					</div>
 				</article>
 			</main>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					var lg = $('#gal');
+					lg.lightGallery();
+
+					$('#gal').lightGallery({
+						selector: '.lg-item',
+						subHtmlSelectorRelative: true
+					});
+				});
+			</script>
+			<div class="col-md-4">
+				<div id="gal">
+					<?php foreach ($gallery as $key): ?>
+						<a href="build/img/<?php echo $key->img?>">
+							<img src="build/img/<?php echo $key->img?>" class="img img-center center-block img-responsive">
+						</a>
+					<?php endforeach ?>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

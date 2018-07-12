@@ -23,4 +23,14 @@ $(document).ready(function(e){
         speed: 500,
         fade: true,
     })
+
+    $('.more-link').click(function(e){
+        e.preventDefault();
+        Snackbar.show({
+            pos: 'bottom-center',
+            text: 'Added to cart.',
+            showAction: false,
+            duration: 5000
+        });
+    });
 });
