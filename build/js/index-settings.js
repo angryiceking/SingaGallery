@@ -22,6 +22,12 @@ $(document).ready(function(e){
             dataType: 'text',
             success:function(msg){
                 // alert(msg);
+                Snackbar.show({
+                    pos: 'bottom-center',
+                    text: 'Successfully logged in!',
+                    showAction: false,
+                    duration: 5000
+                });
                 $('#session_anon').fadeOut(100);
                 $('#session_tab').fadeIn(100);
                 document.getElementById('session_tab_text').innerHTML = msg;
