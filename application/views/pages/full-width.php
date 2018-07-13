@@ -2,6 +2,15 @@
 <div class="content-body">
 	<div class="container">
 		<div class="row">
+			<div class="col-md-12">
+				<h6>
+					<?php if ((!$this->session->has_userdata('is_signed') && $this->session->is_signed != TRUE)): ?>
+						Create an account to <button class="btn btn-md btn-link">buy or post an artwork for sell.</button>
+					<?php else: ?>
+						<button class="btn btn-md btn-link">Add art posting.</button>
+					<?php endif ?>
+				</h6>
+			</div>
 			<main class="col-md-12 text-center center-block">
 				<div class="nr-gallery-slick-gallery">
 					<?php foreach ($gallery as $key): ?>
