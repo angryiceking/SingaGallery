@@ -12,7 +12,13 @@ class AdminController extends MY_Controller
 
 	public function index()
 	{
-		$this->load_admin_template('index.php', null, null);
+
+		$this->load_admin_login_template('index.php', null, null);
+	}
+
+	public function dash()
+	{
+		$this->load_admin_template('dash.php', null, null);
 	}
 
 	public function login()
@@ -21,9 +27,11 @@ class AdminController extends MY_Controller
 		$pass = $this->input->post('password');
 		$a = $this->AdminModel->login($user, $pass);
 
-        // var_dump($a); exit();
+		// var_dump($a);
+
 		if ($a) {
 			$data = [
+			'id' => $a->id,
 			'user' => $a->username,
 			'name' => $a->nickname,
 			'type' => $a->type,
@@ -33,9 +41,11 @@ class AdminController extends MY_Controller
 
 			$this->session->set_userdata($data);
 
-            // redirect('');
-			echo $a->nickname;
+			echo "true";
 		}
-		$this->load_admin_template('dash.php', null, null);
+		else {
+			echo "false";
+		}
+
 	}
 }

@@ -26,7 +26,6 @@ class EntryController extends MY_Controller
 
     public function login()
     {
-
         // var_dump($this->input->post()); exit();
         $user = $this->input->post('username');
         $pass = $this->input->post('password');
@@ -35,6 +34,7 @@ class EntryController extends MY_Controller
         // var_dump($a); exit();
         if ($a) {
             $data = [
+                'id' => $a->id,
                 'user' => $a->username,
                 'name' => $a->nickname,
                 'type' => $a->type,

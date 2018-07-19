@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/personal/singa-gallery-rework/';
+$config['base_url'] = 'http://localhost/singa-gallery-rework/';
 
 /*
 |--------------------------------------------------------------------------
