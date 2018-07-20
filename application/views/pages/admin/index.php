@@ -40,8 +40,8 @@
 					<br/>
 					<h3>Login administrator account.</h3>
 					<form id="login" method="POST">
-						<label>Username:</label><input class="form-control" id="username" name="username"><br/>
-						<label>Password:</label><input class="form-control" id="password" name="password"><br/>
+						<label>Username:</label><input class="form-control" type="text" id="username" name="username"><br/>
+						<label>Password:</label><input class="form-control" typ="password" id="password" name="password"><br/>
 						<button class="btn btn-success">Login as admin.</button>
 					</form>
 				</div>

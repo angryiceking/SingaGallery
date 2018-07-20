@@ -7,7 +7,7 @@ class InsideController extends MY_Controller
     {
         parent::__construct();
         $this->load->helper('url');
-        $this->load->model('EntryModel');
+        $this->load->model(array('EntryModel', 'AdminAPIModel'));
     }
 
     public function gallery()
@@ -20,12 +20,19 @@ class InsideController extends MY_Controller
 
     public function blogs()
     {
-        $this->load_template('full-width.php', null, null, null);
+        $data = array(
+            'events' => $this->AdminAPIModel->get('events'),
+            'blogs' => $this->AdminAPIModel->get('blogs'),
+        );
+        $this->load_template('contact.php', $data, null, null);
     }
 
     public function events()
     {
-        $this->load_template('carousel.php', null, null, null);
+        $data = array(
+            'events' => $this->AdminAPIModel->get('events'),
+        );
+        $this->load_template('carousel.php', $data, null, null);
     }
 
     public function contact()

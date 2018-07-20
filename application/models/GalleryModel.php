@@ -1,4 +1,4 @@
-<?php
+	<?php
 
 class GalleryModel extends CI_Model
 {

@@ -20,12 +20,12 @@ $route['trending'] = 'InsideController/trending';
 $route['admin'] = 'AdminController';
 $route['admin/dash'] = 'AdminController/dash';
 $route['admin/login'] = 'AdminController/login';
-$route['admin/event'] = 'AdminController/event';
-$route['admin/event/add'] = 'AdminController/add_event';
-$route['admin/event/edit'] = 'AdminController/edit_event';
-$route['admin/archive'] = 'AdminController/archive';
-$route['admin/unarchive'] = 'AdminController/unarchive';
-// $route['admin/archive/add'] = 'AdminController/add_archive';
+// $route['admin/event'] = 'AdminController/event';
+
+// ADMIN CRUD
+$route['admin/(:any)/add'] = 'AdminAPIController/add/$1';
+$route['admin/(:any)/edit'] = 'AdminAPIController/edit/$1';
+$route['admin/(:any)/archive'] = 'AdminAPIController/archive/$1';
 
 // USER
 $route['potrait/add'] = 'InsideController/add_potrait';

@@ -12,7 +12,7 @@ class AdminModel extends CI_Model
 	public function login($user, $pass)
 	{
         // var_dump($user, $pass);ju1hkiij2jj
-		$query = $this->db->get_where('users', array('username' => $user, 'password' => $pass, 'type' => 'administrator'));
+		$query = $this->db->get_where('users', array('username' => $user, 'password' => $pass, 'type' => 'admin'));
         // return $query;
 		return $query->row();
 	}

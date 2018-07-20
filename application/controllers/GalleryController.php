@@ -73,10 +73,10 @@ class GalleryController extends MY_Controller
 			);
 		$check = $this->GalleryModel->check_if_liked($data);
 		if ($check != null) {
-			echo "cannot like again";
+			echo "1";
 		}
 		else {
-			echo "can like";
+			echo "0";
 		}
 	}
 }

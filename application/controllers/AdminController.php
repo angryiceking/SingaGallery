@@ -7,7 +7,7 @@ class AdminController extends MY_Controller
 	{
 		parent::__construct();
 		$this->load->helper('url');
-		$this->load->model('AdminModel');
+		$this->load->model(array('AdminModel', 'AdminAPIModel'));
 	}
 
 	public function index()
@@ -18,7 +18,12 @@ class AdminController extends MY_Controller
 
 	public function dash()
 	{
-		$this->load_admin_template('dash.php', null, null);
+		$data = array(
+			'blogs' => $this->AdminAPIModel->get('blogs'),
+			'events' => $this->AdminAPIModel->get('events'),
+			'gallery' => $this->AdminAPIModel->get('gallery'),
+			);
+		$this->load_admin_template('dash.php', $data, null);
 	}
 
 	public function login()
@@ -27,9 +32,9 @@ class AdminController extends MY_Controller
 		$pass = $this->input->post('password');
 		$a = $this->AdminModel->login($user, $pass);
 
-		// var_dump($a);
+		// var_dump($a); exit();
 
-		if ($a) {
+		if ($a != null) {
 			$data = [
 			'id' => $a->id,
 			'user' => $a->username,

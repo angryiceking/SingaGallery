@@ -1,45 +1,20 @@
-
 <div class="content-body">
 	<div class="container">
 		<div class="row">
 			<main class="col-md-12">
-				<h1 class="page-title">Contact</h1>
-				<article class="post">
-					<div class="entry-content clearfix">
-						<form action="#" method="post" class="contact-form">
-							<div class="row">
-								<div class="col-md-6 col-md-offset-3">
-									<input type="text" name="name" placeholder="Name" required>
-									<input type="email" name="email" placeholder="Email" required>
-									<input type="text" name="subject" placeholder="Subject" required>
-									<textarea name="message" rows="7" placeholder="Your Message" required></textarea>
-									<button class="btn-send btn-5 btn-5b ion-ios-paperplane"><span>Drop Me a Line</span></button>
-								</div>
-							</div>	<!-- row -->
-						</form>
-					</div>
-				</article>
-			</main>
-			<script type="text/javascript">
-				$(document).ready(function(){
-					var lg = $('#gal');
-					lg.lightGallery();
-
-					$('#gal').lightGallery({
-						selector: '.lg-item',
-						subHtmlSelectorRelative: true
-					});
-				});
-			</script>
-			<div class="col-md-4">
-				<div id="gal">
-					<?php foreach ($gallery as $key): ?>
-						<a href="build/img/<?php echo $key->img?>">
-							<img src="build/img/<?php echo $key->img?>" class="img img-center center-block img-responsive">
-						</a>
+				<h1 class="page-title">Blogs</h1>
+				<?php if ($blogs != null): ?>
+					<?php foreach ($blogs as $key): ?>
+						<?php echo $key->blog_name?>
+						<?php echo $key->blog_desc?>
+						<?php echo $key->blog_img?>
+						<?php echo $key->blog_date?>
+						<?php echo $key->blog_author?>
 					<?php endforeach ?>
-				</div>
-			</div>
+				<?php else: ?>
+					No blogs were found here.
+				<?php endif ?>
+			</main>
 		</div>
 	</div>
 </div>

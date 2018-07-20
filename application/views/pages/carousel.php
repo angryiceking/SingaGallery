@@ -4,66 +4,22 @@
     <div class="row">
         <div class="col-md-12">
             <div class="slick-gallery">
-                <div>
-                    <img src="build/img/me.jpg" class="img img-center img-responsive center-block">
-                    <div class="col-md-12 center-block text-center">
-                        <h6><a href="#" class="btn btn-link">Click for more details.</a></h6>
+                <!-- USE HERE THE DESIGN FOR EVENTS -->
+                <?php if ($events != null): ?>
+                    <?php foreach ($events as $key): ?>
+                        <?php echo $key->event_name?>
+                        <?php echo $key->event_desc?>
+                        <?php echo $key->event_img?>
+                        <?php echo $key->event_date?>
+                        <?php echo $key->event_author?>
+                    <?php endforeach ?>
+                <?php else: ?>
+                    <div>
+                        <div class="col-md-12 text-center">
+                            No events were found here. Add some.
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <img src="build/img/me.jpg" class="img img-center img-responsive center-block">
-                    <div class="col-md-12 center-block text-center">
-                        <h6><a href="#" class="btn btn-link">Click for more details.</a></h6>
-                    </div>
-                </div>
-                <div>
-                    <img src="build/img/me.jpg" class="img img-center img-responsive center-block">
-                    <div class="col-md-12 center-block text-center">
-                        <h6><a href="#" class="btn btn-link">Click for more details.</a></h6>
-                    </div>
-                </div>
-                <div>
-                    <img src="build/img/me.jpg" class="img img-center img-responsive center-block">
-                    <div class="col-md-12 center-block text-center">
-                        <h6><a href="#" class="btn btn-link">Click for more details.</a></h6>
-                    </div>
-                </div>
-                <div>
-                    <img src="build/img/me.jpg" class="img img-center img-responsive center-block">
-                    <div class="col-md-12 center-block text-center">
-                        <h6><a href="#" class="btn btn-link">Click for more details.</a></h6>
-                    </div>
-                </div>
-                <div>
-                    <img src="build/img/me.jpg" class="img img-center img-responsive center-block">
-                    <div class="col-md-12 center-block text-center">
-                        <h6><a href="#" class="btn btn-link">Click for more details.</a></h6>
-                    </div>
-                </div>
-                <div>
-                    <img src="build/img/me.jpg" class="img img-center img-responsive center-block">
-                    <div class="col-md-12 center-block text-center">
-                        <h6><a href="#" class="btn btn-link">Click for more details.</a></h6>
-                    </div>
-                </div>
-                <div>
-                    <img src="build/img/me.jpg" class="img img-center img-responsive center-block">
-                    <div class="col-md-12 center-block text-center">
-                        <h6><a href="#" class="btn btn-link">Click for more details.</a></h6>
-                    </div>
-                </div>
-                <div>
-                    <img src="build/img/me.jpg" class="img img-center img-responsive center-block">
-                    <div class="col-md-12 center-block text-center">
-                        <h6><a href="#" class="btn btn-link">Click for more details.</a></h6>
-                    </div>
-                </div>
-                <div>
-                    <img src="build/img/me.jpg" class="img img-center img-responsive center-block">
-                    <div class="col-md-12 center-block text-center">
-                        <h6><a href="#" class="btn btn-link">Click for more details.</a></h6>
-                    </div>
-                </div>
+                <?php endif ?>
             </div>
         </div>
     </div>

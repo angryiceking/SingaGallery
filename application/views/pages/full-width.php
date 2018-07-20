@@ -91,8 +91,7 @@
 				},
 				dataType: 'text',
 				success:function(msg) {
-					console.log(msg);
-					if (msg == 'cannot like again') {
+					if (msg == '	1') {
 
 						$('#unlikebtn'+id).fadeIn(100);
 						$('#likebtn'+id).fadeOut(100);
@@ -174,10 +173,10 @@
 											</small>
 										<?php else: ?>
 											<button class="btn btn-md btn-link like" data-attr-art-id="<?php echo $key->id?>" data-attr-user-id="<?php echo $this->session->id?>" id="likebtn<?php echo $key->id?>" data-toggle="tooltip" title="Leave a like if you find it great."><ion-icon name="heart"></ion-icon>
-												<strong id="like_count<?php echo $key->id?>"></strong> people liked this.
+												<strong id="like_count<?php echo $key->id?>"></strong> people like this.
 											</button> 
 											<button class="btn btn-md btn-link unlike" style="display:none" data-attr-art-id="<?php echo $key->id?>" data-attr-user-id="<?php echo $this->session->id?>" id="unlikebtn<?php echo $key->id?>" data-toggle="tooltip" title="Unlike"><ion-icon name="heart"></ion-icon>
-												<strong id="sec_like_count<?php echo $key->id?>"></strong> people liked this including you.
+												You & <strong id="sec_like_count<?php echo $key->id?>"></strong> people like this.
 											</button> 
 										<?php endif ?>
 									</p>
@@ -221,17 +220,13 @@
 												dataType: 'text',
 												success:function(msg) {
 													console.log(msg);
-													if (msg == 'cannot like again') {
-														// $('#like_count'+<?php echo $key->id?>).attr('disabled', false);
+													if (msg == '	1') {
 														$('#unlikebtn<?php echo $key->id?>').fadeIn(100);
 														$('#likebtn<?php echo $key->id?>').fadeOut(100);
-														// $('#like_count'+<?php echo $key->id?>).html('');
-														// $('#like_count'+<?php echo $key->id?>).html(msg);
 													}
 													else {
 														$('#unlikebtn<?php echo $key->id?>').fadeOut(100);
 														$('#likebtn<?php echo $key->id?>').fadeIn(100);
-														// $('#like_count'+<?php echo $key->id?>).attr('disabled', true);
 													}
 												}
 											})

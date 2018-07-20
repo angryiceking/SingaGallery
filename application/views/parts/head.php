@@ -59,9 +59,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
                 <li class="cl-effect-11"><a href="index.php" data-hover="Home">Home</a></li>
-                <li class="cl-effect-11"><a href="gallery" data-hover="Gallery">Gallery</a></li>
+                <li class="cl-effect-11"><a href="gallery" data-hover="Exhibit">Exhibit</a></li>
                 <li class="cl-effect-11"><a href="events" data-hover="Events">Events</a></li>
-                <li class="cl-effect-11"><a href="contact" data-hover="Contact">Contact</a></li>
+                <li class="cl-effect-11"><a href="blogs" data-hover="Contact">Contact</a></li>
                 <li class="cl-effect-11"><a href="about-us" data-hover="About">About</a></li>
                 <?php if ((!$this->session->has_userdata('is_signed') && $this->session->is_signed != TRUE)): ?>
                   <li class="cl-effect-11" id="session_anon"><a href="#" class="btn btn-sm btn-inverse" data-toggle="modal" data-target="#login"><small class="text-danger">Anon</small></a></li>
