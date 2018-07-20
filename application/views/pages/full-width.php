@@ -31,7 +31,25 @@
 				dataType: 'text',
 				data: {artid : artid, userid: userid},
 				success:function(){
+					check_if_liked(artid);
 					get_likes(artid);
+				}
+			})
+		})
+
+		$('.unlike').click(function(e){
+			e.preventDefault();
+			console.log('clicked');
+			var artid = $(this).attr('data-attr-art-id');
+			var userid = $(this).attr('data-attr-user-id');
+			$.ajax({
+				url: 'gallery/art/unlike/',
+				type: 'POST',
+				dataType: 'text',
+				data: {artid : artid, userid: userid},
+				success:function(){
+					get_likes(artid);
+					check_if_liked(artid);
 				}
 			})
 		})
@@ -56,6 +74,33 @@
 				success:function(msg) {
 					$('#like_count'+id).html('');
 					$('#like_count'+id).html(msg);
+					$('#sec_like_count'+id).html('');
+					$('#sec_like_count'+id).html(msg);
+				}
+			})
+		}
+
+
+		function check_if_liked(id) {
+			$.ajax({
+				url: 'gallery/check_like',
+				type: 'POST',
+				data: {
+					user_id : <?php echo $this->session->id?>,
+					art_id : id
+				},
+				dataType: 'text',
+				success:function(msg) {
+					console.log(msg);
+					if (msg == 'cannot like again') {
+
+						$('#unlikebtn'+id).fadeIn(100);
+						$('#likebtn'+id).fadeOut(100);
+					}
+					else {
+						$('#unlikebtn'+id).fadeOut(100);
+						$('#likebtn'+id).fadeIn(100);
+					}
 				}
 			})
 		}
@@ -128,8 +173,11 @@
 												<strong id="like_count<?php echo $key->id?>"></strong> Likes
 											</small>
 										<?php else: ?>
-											<button class="btn btn-md btn-link like" data-attr-art-id="<?php echo $key->id?>" data-attr-user-id="<?php echo $key->id?>" id="like" data-toggle="tooltip" title="Leave a like if you find it great."><ion-icon name="heart"></ion-icon>
-												<strong id="like_count<?php echo $key->id?>"></strong> Likes
+											<button class="btn btn-md btn-link like" data-attr-art-id="<?php echo $key->id?>" data-attr-user-id="<?php echo $this->session->id?>" id="likebtn<?php echo $key->id?>" data-toggle="tooltip" title="Leave a like if you find it great."><ion-icon name="heart"></ion-icon>
+												<strong id="like_count<?php echo $key->id?>"></strong> people liked this.
+											</button> 
+											<button class="btn btn-md btn-link unlike" style="display:none" data-attr-art-id="<?php echo $key->id?>" data-attr-user-id="<?php echo $this->session->id?>" id="unlikebtn<?php echo $key->id?>" data-toggle="tooltip" title="Unlike"><ion-icon name="heart"></ion-icon>
+												<strong id="sec_like_count<?php echo $key->id?>"></strong> people liked this including you.
 											</button> 
 										<?php endif ?>
 									</p>
@@ -145,13 +193,50 @@
 												type: 'POST',
 												dataType: 'text',
 												success:function(msg) {
-													console.log(msg);
-													$('#like_count'+<?php echo $key->id?>).html('');
-													$('#like_count'+<?php echo $key->id?>).html(msg);
+													if (msg != null) {
+														// $('#like_count'+<?php echo $key->id?>).attr('disabled', false);
+														// $('#unlike<?php echo $key->id?>').fadeOut(100);
+														$('#like_count'+<?php echo $key->id?>).html('');
+														$('#like_count'+<?php echo $key->id?>).html(msg);
+														$('#sec_like_count'+<?php echo $key->id?>).html('');
+														$('#sec_like_count'+<?php echo $key->id?>).html(msg);
+													}
+													else {
+														// $('#unlike<?php echo $key->id?>').fadeIn(100);
+														console.log('no likes?');
+														// $('#like_count'+<?php echo $key->id?>).attr('disabled', true);
+													}
 												}
 											})
 										}
 
+										function check_if_liked() {
+											$.ajax({
+												url: 'gallery/check_like',
+												type: 'POST',
+												data: {
+													user_id : <?php echo $this->session->id?>,
+													art_id : <?php echo $key->id?>
+												},
+												dataType: 'text',
+												success:function(msg) {
+													console.log(msg);
+													if (msg == 'cannot like again') {
+														// $('#like_count'+<?php echo $key->id?>).attr('disabled', false);
+														$('#unlikebtn<?php echo $key->id?>').fadeIn(100);
+														$('#likebtn<?php echo $key->id?>').fadeOut(100);
+														// $('#like_count'+<?php echo $key->id?>).html('');
+														// $('#like_count'+<?php echo $key->id?>).html(msg);
+													}
+													else {
+														$('#unlikebtn<?php echo $key->id?>').fadeOut(100);
+														$('#likebtn<?php echo $key->id?>').fadeIn(100);
+														// $('#like_count'+<?php echo $key->id?>).attr('disabled', true);
+													}
+												}
+											})
+										}
+										check_if_liked();
 										get_likes();
 										function get_comments() {
 											$.ajax({
@@ -169,7 +254,7 @@
 									<div id="comment_section<?php echo $key->id?>">
 									</div>
 									<div id="input_section<?php echo $key->id?>">
-										<small><input type="text" class="form-control comment" data-attr-art-id="<?php echo $key->id?>" data-attr-user-id="<?php echo $key->id?>" name="comment<?php echo $key->id?>" id="comment<?php echo $key->id?>" placeholder="leave a comment."></small>
+										<small><input type="text" class="form-control comment" data-attr-art-id="<?php echo $key->id?>" data-attr-user-id="<?php echo $this->session->id?>" name="comment<?php echo $key->id?>" id="comment<?php echo $key->id?>" placeholder="leave a comment."></small>
 									</div>
 								</div>
 							</div>

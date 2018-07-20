@@ -36,5 +36,7 @@ $route['potrait/comment'] = 'InsideController/potrait_add_comment';
 // GALLERY FUNCTIONS
 $route['gallery/art/comment'] = 'GalleryController/comment';
 $route['gallery/art/like'] = 'GalleryController/like';
+$route['gallery/art/unlike'] = 'GalleryController/unlike';
 $route['gallery/comments/(:any)'] = 'GalleryController/get/$1';
 $route['gallery/likes/(:any)'] = 'GalleryController/get_likes/$1';
+$route['gallery/check_like'] = 'GalleryController/check_if_liked';

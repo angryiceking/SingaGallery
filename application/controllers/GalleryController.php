@@ -52,4 +52,31 @@ class GalleryController extends MY_Controller
 		// var_dump($data);
 		$add = $this->GalleryModel->add_like($data);
 	}
+
+	public function unlike()
+	{
+		$data = array(
+			'art_id' => $this->input->post('artid'),
+			'user_id' => $this->input->post('userid')
+			);
+		// var_dump($data);
+		$add = $this->GalleryModel->unlike($data);
+	}
+
+	public function check_if_liked()
+	{
+		$id = $this->input->post('user_id');
+		$art_id = $this->input->post('art_id');
+		$data = array(
+			'user_id' => $id,
+			'art_id' => $art_id
+			);
+		$check = $this->GalleryModel->check_if_liked($data);
+		if ($check != null) {
+			echo "cannot like again";
+		}
+		else {
+			echo "can like";
+		}
+	}
 }
